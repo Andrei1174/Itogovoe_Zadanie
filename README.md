@@ -17,71 +17,16 @@
 // встроенные коллекции лучше обойтись массивами.
 ["Hello","2","world","-;"] => ["2","-;"]
 
-Решение задачи:
-Создание метода string[] GetArrayStringConsole
+# Решение задачи:
+1. Cоздаем метод для разделения строки из консоли в массив по знаку “,”
 
-создаем метод для разделения строки из консоли в массив по знаку “,”
+2. Cоздаем метод который подсчитывает количество символов в строке из массива и создаёт новый массив. Заносим туда символы удовлетворяющие нашим требованиям.
 
-string[] GetArrayStringConsole (string inConsolSimvol)
-{
-    string[] arraySimvol = new string[inConsolSimvol.Length];
-    arraySimvol = inConsolSimvol.Split(",");
-    return arraySimvol;
-}
-Создание метода string[] GetArrayThreeSimvol
+3. Создаем метод для вывода информации из массивов с использованием цеклического вывода каждого элемента массива.
 
-создаем метод сортирующий символы из массива. сначала отсчитываем количество, удовлетворяющих требований, для определения длинны нового массива. создаем массив по выясненому количествуи заносим туда символы удовлетворяющие требованиям.
+4. Создаем "клентский код" для ввода данных , вызова методов и обработки информации через консоль.
+4.1. Выводим поясняющую информационную строку для пользователя в консоле: "Введите набор символов через знак (,) ->
+4.2. Выводим поясняющую информационную строку для пользователя в консоле:"Введенные символы длинной меньше либо равны 3 ->
 
-string[] GetArrayThreeSimvol (string[] array)
-{
-    int count = 0;
-    for (int i = 0; i < array.Length; i++)
-    {
-        string simvol = array[i];
-        if (simvol.Length <= 3)
-        {
-            count++;
-        }
-    }
-    string[] arrayThreeSimvol = new string[count];
-    for (int i = 0, j = 0; i < array.Length; i++)
-    {
-        string simvol = array[i];
-        if (simvol.Length <= 3)
-        {
-            arrayThreeSimvol[j] = simvol;
-            j++;
-        }
-    }
-    return arrayThreeSimvol;
-}
-Создание метода void Print
-
-создаем метод для вывода информации из массивов с использованием цеклического вывода каждого элемента массива.
-
-void Print (string[] array)
-{
-    for (int i = 0; i < array.Length; i++)
-    {
-        Console.Write($"{array[i]}, ");
-    }
-    Console.WriteLine();
-}
-Создаем "клентский код" для вызова методов и обработки информации через консоль.
-выводим поясняющую информационную строку для пользователя в консоле: "Введите набор символов через знак (,) - ""Введите набор символов через знак (,) - "
-
-присваиваем введенное в консоле от пользователя символы string inStringSimvol = console.ReadLine()
-присваиваем массиву преобразованную строку через метод string[] arraySimvol = GetArrayStringConsole(inStringSimvol)
-Console.WriteLine(); Console.Write("Введенные символы - "); Print(GetArrayStringConsole(inStringSimvol)); Console.WriteLine(); Console.Write("Введенные символы длинной меньше либо равны 3 - "); Print(GetArrayThreeSimvol(arraySimvol)); Console.WriteLine();
-
-Console.Write("Введите набор символов через знак (,) - ");
-string inStringSimvol = Console.ReadLine();
-string[] arraySimvol = GetArrayStringConsole(inStringSimvol);
-Console.WriteLine();
-Console.Write("Введенные символы - ");
-Print(GetArrayStringConsole(inStringSimvol));
-Console.WriteLine();
-Console.Write("Введенные символы длинной меньше либо равны 3 - ");
-Print(GetArrayThreeSimvol(arraySimvol));
-Console.WriteLine();
 END
+
